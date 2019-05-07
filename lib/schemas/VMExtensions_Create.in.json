@@ -1,0 +1,94 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "publisher": {
+            "required": true,
+            "type": "string"
+        },
+        "type": {
+            "required": true,
+            "type": "string"
+        },
+        "version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Parameters used to create a new Virtual Machine Extension Image.",
+            "properties": {
+                "properties": {
+                    "description": "Properties of a Virtual Machine Extension Image.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "computeRole": {
+                            "description": "Compute role",
+                            "type": "string"
+                        },
+                        "isSystemExtension": {
+                            "description": "Indicates if the extension is for the system.",
+                            "type": "boolean"
+                        },
+                        "provisioningState": {
+                            "description": "The provisioning state of the resource.",
+                            "enum": [
+                                "Creating",
+                                "Failed",
+                                "Succeeded",
+                                "Canceled"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "name": "ProvisioningState"
+                            }
+                        },
+                        "sourceBlob": {
+                            "description": "URI to Azure or AzureStack blob.",
+                            "properties": {
+                                "uri": {
+                                    "description": "URI to Azure or AzureStack blob.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "supportMultipleExtensions": {
+                            "description": "True if supports multiple extensions.",
+                            "type": "boolean"
+                        },
+                        "vmOsType": {
+                            "description": "Operating system type.",
+                            "enum": [
+                                "Unknown",
+                                "Windows",
+                                "Linux"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "name": "OsType"
+                            }
+                        },
+                        "vmScaleSetEnabled": {
+                            "description": "Value indicating whether the extension is enabled for virtual machine scale set support.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2015-12-01-preview"
+        }
+    }
+}
